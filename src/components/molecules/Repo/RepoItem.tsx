@@ -59,8 +59,8 @@ const RepoItem: React.FC<{ repo: Repo; filterText: string }> = ({ repo, filterTe
         <a href={`https://github.com/${repo.owner.login}`} target="_blank" rel="noopener noreferrer " >
           <img src={repo.owner.avatar_url} alt={`${repo.owner.login}'s avatar`} className="h-10 w-10 rounded-full mr-4 hover:opacity-80" />
         </a>
-        <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-blue-500 hover:underline">
-          {highlightText(repo.name, filterText)}
+        <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-blue-500 hover:underline">
+          {highlightText(repo.full_name, filterText)}
         </a>
       </div>
       <div className="flex items-center mb-2">
