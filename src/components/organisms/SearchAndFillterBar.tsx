@@ -8,14 +8,14 @@ interface SearchAndFillterBarProps {
     onSearch: (searchText: string) => void;
     onFilter: (filterText: string) => void;
     onClear: () => void;
+    filterText: string;
 }
 
 
 
-const SearchAndFillterBar: React.FC<SearchAndFillterBarProps> = ({ onSearch, onFilter, onClear }) => {
+const SearchAndFillterBar: React.FC<SearchAndFillterBarProps> = ({ onSearch, onFilter, onClear, filterText }) => {
 
     const [searchText, setSearchText] = useState<string>('');
-    const [filterText,setFilterText] = useState<string>('');
     const [isFilterEnabled, setIsFilterEnabled] = useState<boolean>(false);
 
     //検索ボタンをクリックした時の処理
@@ -35,10 +35,10 @@ const SearchAndFillterBar: React.FC<SearchAndFillterBarProps> = ({ onSearch, onF
     //クリアボタンをクリックした時の処理
     const handleClearClick = () => {
         setSearchText('');
-        setFilterText('');
         onClear();
         setIsFilterEnabled(false);
     };
+
 
 
     return (
@@ -74,7 +74,9 @@ const SearchAndFillterBar: React.FC<SearchAndFillterBarProps> = ({ onSearch, onF
             <input
                 type="text"
                 placeholder="Filter"
-                onChange={e => onFilter(e.target.value)}
+                value={filterText}
+                onChange={e => onFilter(e.target.value)
+                }
                 className="p-2 border border-gray-300 rounded-md 
                 focus:outline-none focus:shadow-inner-blue w-full max-w-md"
                 disabled={!isFilterEnabled}
