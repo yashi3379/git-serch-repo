@@ -15,7 +15,7 @@ const Main: React.FC = () => {
     return (
         <div>
             <HeaderParts />
-            <SearchBarAndFillterBar onSearch={handleSearch} onFilter={handleFilter} onClear={handleClear} />
+            <SearchBarAndFillterBar onSearch={handleSearch} onFilter={handleFilter} onClear={handleClear} filterText= {filterText} />
             {loading &&
                 <div className="flex justify-center items-center">
                     <FaSpinner className="text-4xl text-blue-500 animate-spin" />
